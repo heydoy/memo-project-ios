@@ -1,8 +1,9 @@
 ---
-title: "[Prefix] 이슈 제목"
+name: ''
+about: ''
+title: "[PREFIX]: [ISSUE NAME]"
 labels: ''
-assignees: ''
-
+assignees: heydoy
 ---
 
 ### 🛠 이슈
