@@ -19,6 +19,7 @@
 		A2B301AC28C0F71500D020B2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A2B301AB28C0F71500D020B2 /* Realm */; };
 		A2B301AE28C0F71500D020B2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2B301AD28C0F71500D020B2 /* RealmSwift */; };
 		A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */; };
+		A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301C828C212F900D020B2 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A2B3019628C0594900D020B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B3019C28C0596D00D020B2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "MemoProject/Global/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		A2B301C828C212F900D020B2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		A2B301BA28C1D8E400D020B2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A2B301C728C212EF00D020B2 /* List */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -159,6 +162,14 @@
 			children = (
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A2B301C728C212EF00D020B2 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A2B301C828C212F900D020B2 /* ListViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 				A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */,
 				A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */,
 				A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */,
+				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
 				A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
