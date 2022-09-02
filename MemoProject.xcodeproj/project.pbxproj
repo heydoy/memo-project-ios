@@ -67,15 +67,95 @@
 		A2B3018728C0594700D020B2 /* MemoProject */ = {
 			isa = PBXGroup;
 			children = (
-				A2B3018828C0594700D020B2 /* AppDelegate.swift */,
-				A2B3018A28C0594700D020B2 /* SceneDelegate.swift */,
+				A2B301B228C1D77300D020B2 /* Application */,
+				A2B301B328C1D79B00D020B2 /* Global */,
+				A2B301BB28C1D8F500D020B2 /* Data */,
+				A2B301BA28C1D8E400D020B2 /* Presentation */,
 				A2B3018C28C0594700D020B2 /* ViewController.swift */,
 				A2B3018E28C0594700D020B2 /* Main.storyboard */,
-				A2B3019128C0594900D020B2 /* Assets.xcassets */,
-				A2B3019328C0594900D020B2 /* LaunchScreen.storyboard */,
 				A2B3019628C0594900D020B2 /* Info.plist */,
 			);
 			path = MemoProject;
+			sourceTree = "<group>";
+		};
+		A2B301B228C1D77300D020B2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3018828C0594700D020B2 /* AppDelegate.swift */,
+				A2B3018A28C0594700D020B2 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A2B301B328C1D79B00D020B2 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				A2B301B428C1D80C00D020B2 /* Extensions */,
+				A2B301B528C1D81800D020B2 /* Literals */,
+				A2B301B628C1D84100D020B2 /* Protocols */,
+				A2B301B728C1D85C00D020B2 /* Resources */,
+				A2B301B828C1D8A800D020B2 /* Supporting Files */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		A2B301B428C1D80C00D020B2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A2B301B528C1D81800D020B2 /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		A2B301B628C1D84100D020B2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A2B301B728C1D85C00D020B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3019128C0594900D020B2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2B301B828C1D8A800D020B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2B301B928C1D8BB00D020B2 /* Base */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2B301B928C1D8BB00D020B2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3019328C0594900D020B2 /* LaunchScreen.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A2B301BA28C1D8E400D020B2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A2B301BB28C1D8F500D020B2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
