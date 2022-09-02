@@ -14,6 +14,7 @@ class ListViewController: UIViewController {
     lazy var tableView = UITableView(frame: .init(), style: .insetGrouped).then {
         $0.delegate = self
         $0.dataSource = self
+        $0.insetsContentViewsToSafeArea = true
         if #available(iOS 15, *) {
             $0.sectionHeaderTopPadding = 0
         }
@@ -43,8 +44,15 @@ class ListViewController: UIViewController {
     }
     
     func setupNavigationBar() {
+        /// Bar Appearances
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemGray6
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
         
         /// Navigation Item
+
         /// - Title
         self.navigationItem.title = "0개의 메모"
         /// -- 타이틀을 크게 설정
@@ -61,6 +69,7 @@ class ListViewController: UIViewController {
         /// - Toolbar
         self.navigationController?.isToolbarHidden = false
         let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+        makeMemoButton.tintColor = .systemOrange
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         self.toolbarItems = [flexibleSpace, makeMemoButton]
     
