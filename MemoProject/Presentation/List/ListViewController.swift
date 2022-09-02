@@ -17,6 +17,7 @@ class ListViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,13 @@ class ListViewController: UIViewController {
         navigationItem.searchController = searchController
         /// -- 스크롤이 되더라도 검색바가 보이게 설정
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        /// - Toolbar
+        self.navigationController?.isToolbarHidden = false
+        let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        self.toolbarItems = [flexibleSpace, makeMemoButton]
+        
     }
     func setConstraints() {
         tableView.snp.makeConstraints { make in
