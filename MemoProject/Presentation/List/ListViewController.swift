@@ -117,6 +117,26 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.textAlignment = .left
 
     }
-    
+    /// 스와이프 액션
+    /// - 고정하기
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let pin = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
+            // 액션코드
+        }
+        let pinImage =  "pin.fill" // OR  "pin.slash.fill"
+        pin.image = UIImage(systemName: pinImage)
+        pin.backgroundColor = .systemOrange
+        
+        return UISwipeActionsConfiguration(actions: [ pin])
+    }
+    /// - 삭제하기
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
+            // 삭제하기
+        }
+        delete.image = UIImage(systemName: "trash.fill")
+        delete.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
     
 }
