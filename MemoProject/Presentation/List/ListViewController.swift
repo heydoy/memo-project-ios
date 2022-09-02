@@ -14,7 +14,6 @@ class ListViewController: UIViewController {
     lazy var tableView = UITableView(frame: .init(), style: .insetGrouped).then {
         $0.delegate = self
         $0.dataSource = self
-        $0.insetsContentViewsToSafeArea = true
         $0.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
     }
@@ -49,12 +48,15 @@ class ListViewController: UIViewController {
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
         
+        
         /// Navigation Item
 
         /// - Title
         self.navigationItem.title = "0개의 메모"
         /// -- 타이틀을 크게 설정
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
+
         
         /// - Search Controller
         let searchController = UISearchController(searchResultsController: nil)
