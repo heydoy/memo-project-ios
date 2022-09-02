@@ -11,10 +11,13 @@ import Then
 
 class ListViewController: UIViewController {
     // MARK: - Properties
-    lazy var tableView = UITableView().then {
+    lazy var tableView = UITableView(frame: .init(), style: .insetGrouped).then {
         $0.delegate = self
         $0.dataSource = self
-        $0.backgroundColor = .clear
+        if #available(iOS 15, *) {
+            $0.sectionHeaderTopPadding = 0
+        }
+        
     }
     
 
@@ -60,17 +63,14 @@ class ListViewController: UIViewController {
         let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         self.toolbarItems = [flexibleSpace, makeMemoButton]
-        
+    
     }
+    
     func setConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
-
-
-
 }
 
 // MARK: - Table View
@@ -81,12 +81,33 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     /// 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 3
     }
     
     /// 셀 구성
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        
+        cell.textLabel?.text = "고기리 들기름 막국수 11시 오픈"
+        cell.textLabel?.font = .boldSystemFont(ofSize: 14)
+        cell.detailTextLabel?.text = "화요일  오픈 10분전부터 웨이팅 등록 가능"
+        cell.detailTextLabel?.textColor = .systemGray
+
+        return cell
     }
+    
+    /// 셀 헤더
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "고정된 메모" : "메모"
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.textLabel?.textColor = UIColor.label
+        header.textLabel?.textAlignment = .left
+
+    }
+    
     
 }
