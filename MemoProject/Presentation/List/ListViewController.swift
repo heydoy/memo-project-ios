@@ -15,9 +15,7 @@ class ListViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.insetsContentViewsToSafeArea = true
-        if #available(iOS 15, *) {
-            $0.sectionHeaderTopPadding = 0
-        }
+        $0.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
     }
     
