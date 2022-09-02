@@ -18,6 +18,7 @@
 		A2B301A928C0F68E00D020B2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = A2B301A828C0F68E00D020B2 /* Then */; };
 		A2B301AC28C0F71500D020B2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A2B301AB28C0F71500D020B2 /* Realm */; };
 		A2B301AE28C0F71500D020B2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2B301AD28C0F71500D020B2 /* RealmSwift */; };
+		A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A2B3019428C0594900D020B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2B3019628C0594900D020B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B3019C28C0596D00D020B2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "MemoProject/Global/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		A2B301B628C1D84100D020B2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */,
 				A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */,
 				A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */,
 				A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */,
