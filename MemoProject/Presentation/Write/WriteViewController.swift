@@ -22,10 +22,14 @@ class WriteViewController: BaseViewController {
         super.viewDidLoad()
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        saveText()
+    }
 
     // MARK: - Helpers
     override func configure() {
-        mainView.textView.delegate = self
+        //mainView.textView.delegate = self
         
     }
     
@@ -46,7 +50,7 @@ class WriteViewController: BaseViewController {
     // MARK: - Actions
     /// 텍스트 Realm에 저장하는 함수
     func saveText() {
-        guard let text = mainView.textView.text else { return }
+        guard let text = mainView.textView.text, !text.isEmpty else { return }
         if let index = text.firstIndex(of: "\n"){
             let title = String(text[..<index])
             let content = String(text[index...])
@@ -57,11 +61,12 @@ class WriteViewController: BaseViewController {
             let item = Memo(title: text, content: nil, dateCreated: Date())
             repository.createMemo(item)
         }
+        print("저장완료")
     }
     
     /// 공유버튼 눌렀을 경우
     @objc func shareButtonTapped(_ sender: UIBarButtonItem) {
-        if let text = mainView.textView.text {
+        if let text = mainView.textView.text, !text.isEmpty {
         showActivityViewController(text: text)
         }
     }
