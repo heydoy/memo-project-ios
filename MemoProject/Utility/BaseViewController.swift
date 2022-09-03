@@ -26,6 +26,9 @@ class BaseViewController: UIViewController {
         appearance.backgroundColor = .systemGray6
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
+        
+        /// Tint Color
+        self.navigationController?.navigationBar.tintColor = .systemOrange
     }
 
     

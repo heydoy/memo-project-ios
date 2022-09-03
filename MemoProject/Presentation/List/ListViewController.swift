@@ -24,7 +24,6 @@ class ListViewController: BaseViewController {
                 
 
     }
-    // MARK: - Actions
     
     
     // MARK: - Helpers
@@ -40,6 +39,7 @@ class ListViewController: BaseViewController {
         /// Navigation Item
         /// - Title
         self.navigationItem.title = "0개의 메모"
+        self.navigationItem.backButtonTitle = "메모"
         /// -- 타이틀을 크게 설정
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
@@ -56,11 +56,21 @@ class ListViewController: BaseViewController {
         /// - Toolbar
         self.navigationController?.isToolbarHidden = false
         self.navigationController?.toolbar.backgroundColor = .systemBackground
-        let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+        let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(makeMemoButtonTapped))
         makeMemoButton.tintColor = .systemOrange
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         self.toolbarItems = [flexibleSpace, makeMemoButton]
+        
     
+    }
+    
+    // MARK: - Actions
+    
+    @objc func makeMemoButtonTapped(_ sender: UIBarButtonItem) {
+        let vc = WriteViewController()
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }

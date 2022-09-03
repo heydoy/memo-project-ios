@@ -22,6 +22,10 @@ class WriteViewController: BaseViewController {
         super.viewDidLoad()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         saveText()
@@ -36,6 +40,8 @@ class WriteViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         /// Navigation Item
+        /// -
+        
         /// - Right Bar Button Item
         let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
         let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: nil)
@@ -44,6 +50,7 @@ class WriteViewController: BaseViewController {
         items.forEach { $0.tintColor = .systemOrange }
         
         navigationItem.rightBarButtonItems = items
+        
         
     }
     
