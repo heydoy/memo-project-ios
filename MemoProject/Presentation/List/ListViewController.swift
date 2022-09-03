@@ -9,38 +9,33 @@ import UIKit
 import SnapKit
 import Then
 
-class ListViewController: UIViewController {
+class ListViewController: BaseViewController {
     // MARK: - Properties
-    lazy var tableView = UITableView(frame: .init(), style: .insetGrouped).then {
-        $0.delegate = self
-        $0.dataSource = self
-        $0.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        
+    
+    let mainView = ListView()
+    
+    // MARK: - Lifecycle
+    override func loadView() {
+        self.view = mainView
     }
     
-
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        setupNavigationBar()
-        setConstraints()
-        
+                
 
     }
     // MARK: - Actions
     
     
     // MARK: - Helpers
-    func setupUI() {
-        /// View
-        self.view.backgroundColor = .systemBackground
-        
-        view.addSubview(tableView)
+    
+    override func configure() {
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
     }
     
-    func setupNavigationBar() {
+    
+    override func setNavigationBar() {
         /// Bar Appearances
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -50,7 +45,6 @@ class ListViewController: UIViewController {
         
         
         /// Navigation Item
-
         /// - Title
         self.navigationItem.title = "0개의 메모"
         /// -- 타이틀을 크게 설정
@@ -68,6 +62,7 @@ class ListViewController: UIViewController {
         
         /// - Toolbar
         self.navigationController?.isToolbarHidden = false
+        self.navigationController?.toolbar.backgroundColor = .systemBackground
         let makeMemoButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
         makeMemoButton.tintColor = .systemOrange
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -75,11 +70,6 @@ class ListViewController: UIViewController {
     
     }
     
-    func setConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
 }
 
 // MARK: - Table View
