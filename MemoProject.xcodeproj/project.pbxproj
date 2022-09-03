@@ -39,7 +39,7 @@
 		A2B3019428C0594900D020B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2B3019628C0594900D020B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B3019C28C0596D00D020B2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "MemoProject/Global/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "MemoProject/Global/Extensions/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		A2B301C828C212F900D020B2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A2B301CC28C31D9400D020B2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A2B301CE28C31F1400D020B2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 		A2B301B428C1D80C00D020B2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -134,7 +135,6 @@
 		A2B301B628C1D84100D020B2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
