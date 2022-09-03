@@ -19,7 +19,14 @@ class BaseViewController: UIViewController {
     }
     
     func configure() { }
-    func setNavigationBar() { }
+    func setNavigationBar() {
+        /// Bar Appearances
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemGray6
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+    }
 
     
 }
