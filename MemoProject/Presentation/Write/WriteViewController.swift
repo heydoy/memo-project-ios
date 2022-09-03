@@ -24,14 +24,15 @@ class WriteViewController: BaseViewController {
 
     // MARK: - Helpers
     override func configure() {
-        //mainView.textView.delegate = self
+        mainView.textView.delegate = self
+        
     }
     
     override func setNavigationBar() {
         super.setNavigationBar()
         /// Navigation Item
         /// - Right Bar Button Item
-        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: nil)
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
         let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: nil)
         
         let items = [ finishButton, shareButton  ]
@@ -39,5 +40,13 @@ class WriteViewController: BaseViewController {
         
         navigationItem.rightBarButtonItems = items
         
+    }
+    
+    // MARK: - Actions
+    /// 공유버튼 눌렀을 경우
+    @objc func shareButtonTapped(_ sender: UIBarButtonItem) {
+        if let text = mainView.textView.text {
+        showActivityViewController(text: text)
+        }
     }
 }
