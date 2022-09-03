@@ -36,14 +36,7 @@ class ListViewController: BaseViewController {
     
     
     override func setNavigationBar() {
-        /// Bar Appearances
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemGray6
-        self.navigationItem.standardAppearance = appearance
-        self.navigationItem.scrollEdgeAppearance = appearance
-        
-        
+        super.setNavigationBar()
         /// Navigation Item
         /// - Title
         self.navigationItem.title = "0개의 메모"
