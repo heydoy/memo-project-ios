@@ -15,7 +15,7 @@ class Memo: Object {
     @Persisted var dateCreated = Date() // 작성시각
     @Persisted var isPinned: Bool // 고정메모 여부
     
-    convenience init(title: String, content: String?, dateCreated: Date, dateModified: Date ) {
+    convenience init(title: String, content: String?, dateCreated: Date ) {
         self.init()
         
         self.title = title

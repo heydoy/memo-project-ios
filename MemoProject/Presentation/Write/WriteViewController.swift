@@ -11,6 +11,7 @@ class WriteViewController: BaseViewController {
     // MARK: - Properties
     
     let mainView = WriteView()
+    let repository = MemoRepository()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -43,10 +44,30 @@ class WriteViewController: BaseViewController {
     }
     
     // MARK: - Actions
+    /// 텍스트 Realm에 저장하는 함수
+    func saveText() {
+        guard let text = mainView.textView.text else { return }
+        if let index = text.firstIndex(of: "\n"){
+            let title = String(text[..<index])
+            let content = String(text[index...])
+            let item = Memo(title: title, content: content, dateCreated: Date())
+            repository.createMemo(item)
+            
+        } else {
+            let item = Memo(title: text, content: nil, dateCreated: Date())
+            repository.createMemo(item)
+        }
+    }
+    
     /// 공유버튼 눌렀을 경우
     @objc func shareButtonTapped(_ sender: UIBarButtonItem) {
         if let text = mainView.textView.text {
         showActivityViewController(text: text)
         }
+    }
+    
+    /// 완료버튼 눌렀을 경우
+    @objc func finishButtonTapped(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
