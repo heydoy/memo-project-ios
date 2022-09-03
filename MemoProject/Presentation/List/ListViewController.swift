@@ -8,11 +8,25 @@
 import UIKit
 import SnapKit
 import Then
+import RealmSwift
 
-class ListViewController: BaseViewController {
+final class ListViewController: BaseViewController {
     // MARK: - Properties
     
     let mainView = ListView()
+    let repository = MemoRepository()
+    var list: Results<Memo>! {
+        didSet {
+            mainView.tableView.reloadData()
+            listCount = list.count
+        }
+    }
+    
+    var listCount: Int = 0 {
+        didSet {
+            self.navigationItem.title = "\(numberFormat(for: listCount))개의 메모"
+        }
+    }
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -22,7 +36,18 @@ class ListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function)
+        list = repository.fetch() // 저장시점이랑 viewWillAppear 시점이 다르다.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if repository.fetch() != list {
+            list = repository.fetch()
+        }
     }
     
     
@@ -38,7 +63,7 @@ class ListViewController: BaseViewController {
         super.setNavigationBar()
         /// Navigation Item
         /// - Title
-        self.navigationItem.title = "0개의 메모"
+        
         self.navigationItem.backButtonTitle = "메모"
         /// -- 타이틀을 크게 설정
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -83,16 +108,26 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     /// 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return section == 0 ? repository.fetchIsPinned(true).count : repository.fetchIsPinned(false).count
     }
     
     /// 셀 구성
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        cell.textLabel?.text = "고기리 들기름 막국수 11시 오픈"
+        let item = list[indexPath.row]
+        cell.textLabel?.text = item.title
         cell.textLabel?.font = .boldSystemFont(ofSize: 14)
-        cell.detailTextLabel?.text = "화요일  오픈 10분전부터 웨이팅 등록 가능"
+        
+        let dateString: String = dateFormat(for: item.dateCreated).replacingOccurrences(of: "\n", with: "")
+        
+        var contentString = ""
+        
+        if let content = item.content {
+            contentString = content.replacingOccurrences(of: "\n", with: "")
+        }
+        cell.detailTextLabel?.text = "\(dateString)  \(contentString)"
+        
         cell.detailTextLabel?.textColor = .systemGray
 
         return cell
@@ -114,7 +149,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     /// - 고정하기
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
-            // 액션코드
+            // 핀하기
+            
+            self.list = self.repository.fetch()
+            
         }
         let pinImage =  "pin.fill" // OR  "pin.slash.fill"
         pin.image = UIImage(systemName: pinImage)
@@ -126,6 +164,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
             // 삭제하기
+            self.showAlert(title: "삭제하시겠습니까?", okText: "네, 삭제합니다.") { action in
+                self.repository.deleteMemo(self.list[indexPath.row])
+                self.list = self.repository.fetch()
+                
+            }
+            
         }
         delete.image = UIImage(systemName: "trash.fill")
         delete.backgroundColor = .systemRed

@@ -27,6 +27,7 @@
 		A2F1D9C028C36BCA00C3B010 /* MemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9BF28C36BCA00C3B010 /* MemoRepository.swift */; };
 		A2F1D9C828C3748C00C3B010 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9C728C3748C00C3B010 /* WriteView.swift */; };
 		A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */; };
+		A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A2F1D9BF28C36BCA00C3B010 /* MemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRepository.swift; sourceTree = "<group>"; };
 		A2F1D9C728C3748C00C3B010 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */,
+				A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */,
+				A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */,
 				A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */,
 				A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */,
 				A2F1D9C028C36BCA00C3B010 /* MemoRepository.swift in Sources */,
