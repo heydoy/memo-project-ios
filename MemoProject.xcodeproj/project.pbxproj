@@ -23,6 +23,7 @@
 		A2B301CD28C31D9400D020B2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301CC28C31D9400D020B2 /* BaseViewController.swift */; };
 		A2B301CF28C31F1400D020B2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301CE28C31F1400D020B2 /* ListView.swift */; };
 		A2B301D128C31F4400D020B2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B301D028C31F4400D020B2 /* BaseView.swift */; };
+		A2F1D9BE28C368C100C3B010 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9BD28C368C100C3B010 /* Memo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A2B301CC28C31D9400D020B2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A2B301CE28C31F1400D020B2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A2B301D028C31F4400D020B2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A2F1D9BD28C368C100C3B010 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +81,11 @@
 			children = (
 				A2B301B228C1D77300D020B2 /* Application */,
 				A2B301B328C1D79B00D020B2 /* Global */,
-				A2B301BB28C1D8F500D020B2 /* Data */,
 				A2B301BA28C1D8E400D020B2 /* Presentation */,
-				A2B3018C28C0594700D020B2 /* ViewController.swift */,
-				A2B3018E28C0594700D020B2 /* Main.storyboard */,
 				A2B3019628C0594900D020B2 /* Info.plist */,
 				A2B301CB28C31D6B00D020B2 /* Utility */,
+				A2B301BB28C1D8F500D020B2 /* Data */,
+				A2F1D9B928C367C200C3B010 /* Domain */,
 			);
 			path = MemoProject;
 			sourceTree = "<group>";
@@ -159,6 +160,7 @@
 		A2B301BA28C1D8E400D020B2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A2F1D9BC28C3684600C3B010 /* Main(disused) */,
 				A2B301C728C212EF00D020B2 /* List */,
 			);
 			path = Presentation;
@@ -167,6 +169,7 @@
 		A2B301BB28C1D8F500D020B2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A2F1D9BA28C367F300C3B010 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -187,6 +190,38 @@
 				A2B301D028C31F4400D020B2 /* BaseView.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		A2F1D9B928C367C200C3B010 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A2F1D9BB28C367FB00C3B010 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A2F1D9BA28C367F300C3B010 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		A2F1D9BB28C367FB00C3B010 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2F1D9BD28C368C100C3B010 /* Memo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A2F1D9BC28C3684600C3B010 /* Main(disused) */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3018C28C0594700D020B2 /* ViewController.swift */,
+				A2B3018E28C0594700D020B2 /* Main.storyboard */,
+			);
+			path = "Main(disused)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +313,7 @@
 				A2B301CF28C31F1400D020B2 /* ListView.swift in Sources */,
 				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
 				A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */,
+				A2F1D9BE28C368C100C3B010 /* Memo.swift in Sources */,
 				A2B301CD28C31D9400D020B2 /* BaseViewController.swift in Sources */,
 				A2B301D128C31F4400D020B2 /* BaseView.swift in Sources */,
 			);
