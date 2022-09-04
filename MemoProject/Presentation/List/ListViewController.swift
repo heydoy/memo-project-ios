@@ -170,6 +170,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = "\(dateString)  \(contentString)"
         
         cell.detailTextLabel?.textColor = .systemGray
+        
+        /// 검색 중일 경우 쿼리에 해당하는 텍스트 색상과 볼드를 변경
+        if isSearching {
+            cell.detailTextLabel?.labelColorChange(query)
+            cell.textLabel?.labelColorChange(query)
+
+        }
 
         return cell
     }
