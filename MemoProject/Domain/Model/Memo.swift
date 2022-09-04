@@ -24,3 +24,7 @@ class Memo: Object {
         self.isPinned = false
     }
 }
+
+enum MemoPin {
+    static let MaximumNumber = 5
+}
