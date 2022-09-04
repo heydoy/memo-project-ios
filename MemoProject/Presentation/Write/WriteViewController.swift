@@ -21,6 +21,8 @@ class WriteViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+                
     }
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
@@ -33,25 +35,14 @@ class WriteViewController: BaseViewController {
 
     // MARK: - Helpers
     override func configure() {
-        //mainView.textView.delegate = self
+        setBarButton(false)
+        mainView.textView.delegate = self
         
     }
     
     override func setNavigationBar() {
         super.setNavigationBar()
         /// Navigation Item
-        /// -
-        
-        /// - Right Bar Button Item
-        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
-        let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
-        
-        let items = [ finishButton, shareButton  ]
-        items.forEach { $0.tintColor = .systemOrange }
-        
-        navigationItem.rightBarButtonItems = items
-        
-        
     }
     
     // MARK: - Actions
@@ -81,5 +72,29 @@ class WriteViewController: BaseViewController {
     /// 완료버튼 눌렀을 경우
     @objc func finishButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    /// 바버튼
+    func setBarButton(_ bool : Bool) {
+        /// - Right Bar Button Item
+        if bool {
+            let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
+            let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
+            
+            let items = [ finishButton, shareButton  ]
+            items.forEach { $0.tintColor = .systemOrange }
+            
+            navigationItem.rightBarButtonItems = items
+        } else {
+            navigationItem.rightBarButtonItems = nil
+        }
+    }
+}
+
+// MARK: - UITextView Delegate
+
+extension WriteViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        setBarButton(true)
     }
 }

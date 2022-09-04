@@ -127,7 +127,7 @@ final class ListViewController: BaseViewController {
     
     @objc func makeMemoButtonTapped(_ sender: UIBarButtonItem) {
         let vc = WriteViewController()
-
+        vc.isEditing = false
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
