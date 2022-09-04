@@ -44,7 +44,7 @@ class WriteViewController: BaseViewController {
         
         /// - Right Bar Button Item
         let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
-        let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: nil)
+        let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
         
         let items = [ finishButton, shareButton  ]
         items.forEach { $0.tintColor = .systemOrange }
