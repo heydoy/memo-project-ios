@@ -155,7 +155,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        // 검색 중일 때, 아닐 때 (섹션이 고정메모일 때, 아닐 때)
+        /// 검색 중일 때와 아닐 때 구분해서 데이터를 가져옴 (섹션이 고정메모일 때, 아닐 때)
         let item = isSearching ? filterResult[indexPath.row] : (indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row])
         cell.textLabel?.text = item.title
         cell.textLabel?.font = .boldSystemFont(ofSize: 14)
@@ -170,6 +170,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = "\(dateString)  \(contentString)"
         
         cell.detailTextLabel?.textColor = .systemGray
+        
+        /// 검색 중일 경우 쿼리에 해당하는 텍스트 색상과 볼드를 변경
+        if isSearching {
+            cell.detailTextLabel?.labelColorChange(query)
+            cell.textLabel?.labelColorChange(query)
+
+        }
 
         return cell
     }
@@ -216,11 +223,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
         }
-        let pinImage =  "pin.fill" // OR  "pin.slash.fill"
+        let item = indexPath.section == 0 ? self.pinList[indexPath.row] : self.unpinList[indexPath.row]
+        let pinImage = item.isPinned ? "pin.slash.fill" : "pin.fill"
         pin.image = UIImage(systemName: pinImage)
         pin.backgroundColor = .systemOrange
         
-        return UISwipeActionsConfiguration(actions: [ pin])
+        return UISwipeActionsConfiguration(actions: [ pin ])
     }
     /// - 삭제하기
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -247,6 +255,5 @@ extension ListViewController: UISearchResultsUpdating {
         
         self.query = query
         self.filterResult = repository.fetchFilter(query)
-        print(query, filterResult, isSearching)
     }
 }

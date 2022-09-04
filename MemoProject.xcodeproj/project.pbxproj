@@ -28,6 +28,7 @@
 		A2F1D9C828C3748C00C3B010 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9C728C3748C00C3B010 /* WriteView.swift */; };
 		A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */; };
 		A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */; };
+		A2F1D9CE28C4A79000C3B010 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		A2F1D9C728C3748C00C3B010 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A2B301C128C2095700D020B2 /* UIViewController+Extension.swift */,
+				A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */,
 				A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */,
 			);
 			path = Extensions;
@@ -337,6 +340,7 @@
 				A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */,
 				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
 				A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */,
+				A2F1D9CE28C4A79000C3B010 /* UILabel+Extension.swift in Sources */,
 				A2F1D9BE28C368C100C3B010 /* Memo.swift in Sources */,
 				A2B301CD28C31D9400D020B2 /* BaseViewController.swift in Sources */,
 				A2B301D128C31F4400D020B2 /* BaseView.swift in Sources */,
