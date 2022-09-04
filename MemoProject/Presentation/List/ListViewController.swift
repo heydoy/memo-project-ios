@@ -95,6 +95,7 @@ class ListViewController: BaseViewController {
         /// - Title
         
         self.navigationItem.backButtonTitle = "메모"
+        
         /// -- 타이틀을 크게 설정
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
@@ -196,9 +197,18 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = WriteViewController()
         vc.delegate = self
         vc.editingMode = true
-        let memo = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
-        vc.updateTextview(memo: memo)
-        vc.editingMemo = memo
+        
+        if isSearching {
+            self.navigationItem.backButtonTitle = "검색"
+            let memo = filterResult[indexPath.row]
+            vc.updateTextview(memo: memo)
+            vc.editingMemo = memo
+        } else {
+            self.navigationItem.backButtonTitle = "메모"
+            let memo = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
+            vc.updateTextview(memo: memo)
+            vc.editingMemo = memo
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
