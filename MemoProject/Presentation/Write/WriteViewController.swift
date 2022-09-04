@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WriteViewController: BaseViewController {
     // MARK: - Properties
-    
+    var delegate: MemoDelegate?
+    var editingMode: Bool = false
+    var editingMemo = Memo()
     let mainView = WriteView()
     let repository = MemoRepository()
     
@@ -30,6 +33,7 @@ class WriteViewController: BaseViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
         saveText()
     }
 
@@ -46,6 +50,18 @@ class WriteViewController: BaseViewController {
     }
     
     // MARK: - Actions
+    func updateTextview(memo: Memo) {
+        isEditing = false
+        
+        if let content = memo.content {
+            mainView.textView.text = memo.title + content
+        } else {
+            mainView.textView.text = memo.title
+        }
+        
+        
+    }
+    
     /// 텍스트 Realm에 저장하는 함수
     func saveText() {
         guard let text = mainView.textView.text, !text.isEmpty else { return }
@@ -53,11 +69,21 @@ class WriteViewController: BaseViewController {
             let title = String(text[..<index])
             let content = String(text[index...])
             let item = Memo(title: title, content: content, dateCreated: Date())
-            repository.createMemo(item)
+            if editingMode {
+                delegate?.updateMemo2(title: title, content: content, dateCreated: Date(), _id: editingMemo._id)
+            }
+            else {
+                repository.createMemo(item)
+            }
             
         } else {
             let item = Memo(title: text, content: nil, dateCreated: Date())
-            repository.createMemo(item)
+            if editingMode {
+                delegate?.updateMemo2(title: text, content: nil, dateCreated: Date(), _id: editingMemo._id)
+            }
+            else {
+                repository.createMemo(item)
+            }
         }
         print("저장완료")
     }
