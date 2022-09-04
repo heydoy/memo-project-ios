@@ -32,7 +32,7 @@ class MemoRepository: MemoRepositoryType {
     func fetchFilter(_ query: String) -> Results<Memo> {
         let tasks = localRealm.objects(Memo.self)
         let results = tasks.where {
-            $0.title.contains(query) || $0.content.contains(query)
+            $0.title.contains(query, options: .caseInsensitive) || $0.content.contains(query, options: .caseInsensitive)
         }
         
         return results

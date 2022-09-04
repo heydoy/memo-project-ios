@@ -15,6 +15,22 @@ final class ListViewController: BaseViewController {
     
     let mainView = ListView()
     let repository = MemoRepository()
+    
+    var query = String() // 검색어
+    var filterResult: Results<Memo>! { // 검색결과
+        didSet {
+            mainView.tableView.reloadData()
+        }
+    }
+    
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearching: Bool {
+        get {
+            return searchController.isActive
+        }
+    }
+    
     var list: Results<Memo>! {
         didSet {
             mainView.tableView.reloadData()
@@ -78,8 +94,12 @@ final class ListViewController: BaseViewController {
 
         
         /// - Search Controller
-        let searchController = UISearchController(searchResultsController: nil)
+        
         searchController.searchBar.placeholder = "검색"
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+       // definesPresentationContext = true
+        
         
         navigationItem.searchController = searchController
         /// -- 스크롤이 되더라도 검색바가 보이게 설정
@@ -116,14 +136,18 @@ final class ListViewController: BaseViewController {
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     /// 섹션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return isSearching ? 1 : 2 // 검색결과화면과 리스트
     }
     /// 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if pinList == nil || unpinList == nil {
-            return 0
+        if isSearching {
+            return filterResult == nil ? 0 : filterResult.count
+        } else {
+            if pinList == nil || unpinList == nil {
+                return 0
+            }
+            return section == 0 ? pinList.count : unpinList.count
         }
-        return section == 0 ? pinList.count : unpinList.count
     }
     
     /// 셀 구성
@@ -131,7 +155,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        let item = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
+        // 검색 중일 때, 아닐 때 (섹션이 고정메모일 때, 아닐 때)
+        let item = isSearching ? filterResult[indexPath.row] : (indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row])
         cell.textLabel?.text = item.title
         cell.textLabel?.font = .boldSystemFont(ofSize: 14)
         
@@ -151,11 +176,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     /// 셀 헤더
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if pinList != nil && pinList.count > 0 {
-            return section == 0 ? "고정된 메모" : "메모"
-        }
-        else {
-            return section == 0 ? nil : "메모"
+        if isSearching {
+            let count = filterResult == nil ? 0 : filterResult.count
+            return "\(count)개 찾음 "
+        } else {
+            if pinList != nil && pinList.count > 0 {
+                return section == 0 ? "고정된 메모" : "메모"
+            }
+            else {
+                return section == 0 ? nil : "메모"
+            }
         }
     }
 
@@ -210,4 +240,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+}
+extension ListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let query = searchController.searchBar.text ?? ""
+        
+        self.query = query
+        self.filterResult = repository.fetchFilter(query)
+        print(query, filterResult, isSearching)
+    }
 }
