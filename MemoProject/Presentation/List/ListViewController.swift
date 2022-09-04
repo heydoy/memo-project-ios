@@ -58,9 +58,8 @@ final class ListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchRealm()
@@ -71,6 +70,9 @@ final class ListViewController: BaseViewController {
         if repository.fetch() != list {
             fetchRealm()
         }
+        /// Walkthrough 팝업 띄우기
+        showWalkthroughPopup()
+           
     }
     
     

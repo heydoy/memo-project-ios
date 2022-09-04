@@ -49,6 +49,8 @@ class WalkthroughViewController: UIViewController {
         popupView.addSubview(okButton)
         popupView.addSubview(welcomeLabel)
         
+        okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
+        
         
     }
     

@@ -11,8 +11,15 @@ import UIKit
 extension UIViewController {
     /// Walkthrough
     public func showWalkthroughPopup() {
-        let walkthroughVC = WalkthroughViewController()
-        self.present(walkthroughVC, animated: true)
+        if LandscapeManager.shared.isFirstLaunch {
+            
+            let walkthroughVC = WalkthroughViewController()
+            walkthroughVC.modalPresentationStyle = .overFullScreen
+            walkthroughVC.modalTransitionStyle = .crossDissolve
+            self.present(walkthroughVC, animated: true)
+            
+            LandscapeManager.shared.isFirstLaunch = false
+        }
     }
     
     /// Activity View Controller
