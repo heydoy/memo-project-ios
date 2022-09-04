@@ -30,6 +30,7 @@
 		A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */; };
 		A2F1D9CE28C4A79000C3B010 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */; };
 		A2F1D9D228C4CD7900C3B010 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9D128C4CD7900C3B010 /* WalkthroughViewController.swift */; };
+		A2F1D9D528C4DA1000C3B010 /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9D428C4DA1000C3B010 /* LandscapeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		A2F1D9D128C4CD7900C3B010 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		A2F1D9D428C4DA1000C3B010 /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A2B301B228C1D77300D020B2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A2F1D9D328C4DA0100C3B010 /* Manager */,
 				A2B3018828C0594700D020B2 /* AppDelegate.swift */,
 				A2B3018A28C0594700D020B2 /* SceneDelegate.swift */,
 			);
@@ -258,6 +261,14 @@
 			path = Walkthrough;
 			sourceTree = "<group>";
 		};
+		A2F1D9D328C4DA0100C3B010 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A2F1D9D428C4DA1000C3B010 /* LandscapeManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,6 +359,7 @@
 				A2F1D9C028C36BCA00C3B010 /* MemoRepository.swift in Sources */,
 				A2B301CF28C31F1400D020B2 /* ListView.swift in Sources */,
 				A2F1D9C828C3748C00C3B010 /* WriteView.swift in Sources */,
+				A2F1D9D528C4DA1000C3B010 /* LandscapeManager.swift in Sources */,
 				A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */,
 				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
 				A2F1D9D228C4CD7900C3B010 /* WalkthroughViewController.swift in Sources */,
