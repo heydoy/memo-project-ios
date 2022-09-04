@@ -14,6 +14,7 @@ protocol MemoRepositoryType {
     func fetchFilter(_ query: String) -> Results<Memo>
     func createMemo(_ item: Memo)
     func updateMemo(_ item: Memo)
+    func updateMemo2(title: String, content: String?, dateCreated: Date, _id: ObjectId)
     func deleteMemo(_ item: Memo)
     func updatePin(_ item: Memo)
 }
@@ -56,6 +57,22 @@ class MemoRepository: MemoRepositoryType {
             }
         } catch let error {
             print(error)
+        }
+    }
+    
+    func updateMemo2(title: String, content: String?, dateCreated: Date, _id: ObjectId) {
+        let tasks = localRealm.objects(Memo.self)
+        if let result = tasks.where({ $0._id == _id }).first {
+            
+            do {
+                try localRealm.write {
+                    result.title = title
+                    result.content = content
+                    result.dateCreated = dateCreated
+                }
+            } catch let error {
+                print(error)
+            }
         }
     }
     

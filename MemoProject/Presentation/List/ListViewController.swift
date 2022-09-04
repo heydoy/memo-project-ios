@@ -10,7 +10,12 @@ import SnapKit
 import Then
 import RealmSwift
 
-final class ListViewController: BaseViewController {
+protocol MemoDelegate: AnyObject {
+    func updateMemo2(title: String, content: String?, dateCreated: Date, _id: ObjectId )
+    func updateMemo(memo: Memo)
+}
+
+class ListViewController: BaseViewController {
     // MARK: - Properties
     
     let mainView = ListView()
@@ -186,6 +191,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    /// 선택되었을 경우
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = WriteViewController()
+        vc.delegate = self
+        vc.editingMode = true
+        let memo = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
+        vc.updateTextview(memo: memo)
+        vc.editingMemo = memo
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     /// 셀 헤더
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -255,11 +270,23 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+// MARK: - Search Bar Result Update
 extension ListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let query = searchController.searchBar.text ?? ""
         
         self.query = query
         self.filterResult = repository.fetchFilter(query)
+    }
+}
+
+// MARK: - Memo Delegate Protocol
+extension ListViewController: MemoDelegate {
+    func updateMemo2(title: String, content: String?, dateCreated: Date, _id: ObjectId ) {
+        self.repository.updateMemo2(title: title, content: content, dateCreated: dateCreated, _id: _id)
+    }
+    func updateMemo(memo: Memo) {
+        self.repository.updateMemo(memo)
     }
 }
