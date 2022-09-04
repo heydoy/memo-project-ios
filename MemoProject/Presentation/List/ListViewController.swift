@@ -179,6 +179,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.labelColorChange(query)
 
         }
+        /// - 추가 텍스트 없음 
+        if contentString.isEmpty {
+            cell.detailTextLabel?.text = "\(dateString)  추가 텍스트 없음"
+        }
 
         return cell
     }
