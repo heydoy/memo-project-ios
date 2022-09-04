@@ -15,6 +15,15 @@ final class ListViewController: BaseViewController {
     
     let mainView = ListView()
     let repository = MemoRepository()
+    
+    var query = String() // 검색어
+    var filterResult: Results<Memo>! { // 검색결과
+        didSet {
+            mainView.tableView.reloadData()
+        }
+    }
+    
+    
     var list: Results<Memo>! {
         didSet {
             mainView.tableView.reloadData()
@@ -80,6 +89,10 @@ final class ListViewController: BaseViewController {
         /// - Search Controller
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "검색"
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+       // definesPresentationContext = true
+        
         
         navigationItem.searchController = searchController
         /// -- 스크롤이 되더라도 검색바가 보이게 설정
@@ -210,4 +223,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+}
+extension ListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let query = searchController.searchBar.text ?? ""
+        
+        self.query = query
+        self.filterResult = repository.fetchFilter(query)
+        print(query, filterResult)
+    }
 }
