@@ -24,6 +24,13 @@ final class ListViewController: BaseViewController {
     }
     
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearching: Bool {
+        get {
+            return searchController.isActive
+        }
+    }
+    
     var list: Results<Memo>! {
         didSet {
             mainView.tableView.reloadData()
@@ -87,7 +94,7 @@ final class ListViewController: BaseViewController {
 
         
         /// - Search Controller
-        let searchController = UISearchController(searchResultsController: nil)
+        
         searchController.searchBar.placeholder = "검색"
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -230,6 +237,6 @@ extension ListViewController: UISearchResultsUpdating {
         
         self.query = query
         self.filterResult = repository.fetchFilter(query)
-        print(query, filterResult)
+        print(query, filterResult, isSearching)
     }
 }
