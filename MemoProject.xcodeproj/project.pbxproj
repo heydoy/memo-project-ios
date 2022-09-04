@@ -29,6 +29,7 @@
 		A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */; };
 		A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */; };
 		A2F1D9CE28C4A79000C3B010 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */; };
+		A2F1D9D228C4CD7900C3B010 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F1D9D128C4CD7900C3B010 /* WalkthroughViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A2F1D9C928C3749E00C3B010 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		A2F1D9CB28C4083A00C3B010 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A2F1D9CD28C4A79000C3B010 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		A2F1D9D128C4CD7900C3B010 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				A2F1D9BC28C3684600C3B010 /* Main(disused) */,
+				A2F1D9D028C4CD6B00C3B010 /* Walkthrough */,
 				A2F1D9C428C3746100C3B010 /* Write */,
 				A2B301C728C212EF00D020B2 /* List */,
 			);
@@ -245,6 +248,14 @@
 				A2F1D9C728C3748C00C3B010 /* WriteView.swift */,
 			);
 			path = Write;
+			sourceTree = "<group>";
+		};
+		A2F1D9D028C4CD6B00C3B010 /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				A2F1D9D128C4CD7900C3B010 /* WalkthroughViewController.swift */,
+			);
+			path = Walkthrough;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +350,7 @@
 				A2F1D9C828C3748C00C3B010 /* WriteView.swift in Sources */,
 				A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */,
 				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
+				A2F1D9D228C4CD7900C3B010 /* WalkthroughViewController.swift in Sources */,
 				A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */,
 				A2F1D9CE28C4A79000C3B010 /* UILabel+Extension.swift in Sources */,
 				A2F1D9BE28C368C100C3B010 /* Memo.swift in Sources */,
