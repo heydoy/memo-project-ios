@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    /// Walkthrough
+    public func showWalkthroughPopup() {
+        let walkthroughVC = WalkthroughViewController()
+        self.present(walkthroughVC, animated: true)
+    }
+    
     /// Activity View Controller
     public func showActivityViewController(text: String) {
         
