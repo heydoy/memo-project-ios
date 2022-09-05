@@ -23,10 +23,9 @@ class WriteViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
                 
     }
+    
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
         
@@ -39,7 +38,12 @@ class WriteViewController: BaseViewController {
 
     // MARK: - Helpers
     override func configure() {
-        setBarButton(false)
+        /// 기존 메모 선택해서 들어왔을 경우 바버튼을 숨긴다
+        if editingMode {
+            setBarButton(false)
+        } else {
+            setBarButton(true)
+        }
         mainView.textView.delegate = self
         
     }
@@ -69,14 +73,15 @@ class WriteViewController: BaseViewController {
             let title = String(text[..<index])
             let content = String(text[index...])
             let item = Memo(title: title, content: content, dateCreated: Date())
-            if editingMode {
+            
+            if editingMode { /// - 메모 편집할 때
                 delegate?.updateMemo2(title: title, content: content, dateCreated: Date(), _id: editingMemo._id)
             }
             else {
                 repository.createMemo(item)
             }
             
-        } else {
+        } else { /// - 새 메모 만들 때
             let item = Memo(title: text, content: nil, dateCreated: Date())
             if editingMode {
                 delegate?.updateMemo2(title: text, content: nil, dateCreated: Date(), _id: editingMemo._id)
@@ -104,6 +109,9 @@ class WriteViewController: BaseViewController {
     func setBarButton(_ bool : Bool) {
         /// - Right Bar Button Item
         if bool {
+            /// - 키보드도 올라오게 해준다. 
+            mainView.textView.becomeFirstResponder()
+            
             let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonTapped))
             let finishButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
             
@@ -122,5 +130,6 @@ class WriteViewController: BaseViewController {
 extension WriteViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         setBarButton(true)
+        
     }
 }
