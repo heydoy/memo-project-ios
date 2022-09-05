@@ -133,7 +133,8 @@ class ListViewController: BaseViewController {
     
     @objc func makeMemoButtonTapped(_ sender: UIBarButtonItem) {
         let vc = WriteViewController()
-        vc.isEditing = false
+        vc.isEditing = true
+        vc.editingMode = false // 새 메모라서 편집모드 X
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -192,12 +193,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    /// 선택되었을 경우
+    /// 셀 선택되었을 경우
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = WriteViewController()
         vc.delegate = self
-        vc.editingMode = true
-        
+        vc.isEditing = false
+        vc.editingMode = true // 기존메모 수정이므로 editingMode 는 참 
         if isSearching {
             self.navigationItem.backButtonTitle = "검색"
             let memo = filterResult[indexPath.row]
