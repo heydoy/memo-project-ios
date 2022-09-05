@@ -10,7 +10,7 @@ import RealmSwift
 
 class WriteViewController: BaseViewController {
     // MARK: - Properties
-    var delegate: MemoDelegate?
+    weak var delegate: MemoDelegate?
     var editingMode: Bool = false
     var editingMemo = Memo()
     let mainView = WriteView()
