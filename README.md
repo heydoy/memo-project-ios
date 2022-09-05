@@ -27,6 +27,7 @@
 2. 수정창에서 한 번 더 탭하면 키보드와 바 버튼이 보입니다. 
 
 <br>
+
 | 🏞 메모 수정 | 
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 26 30](https://user-images.githubusercontent.com/51395335/188489244-5c807f17-1f5c-487e-a4d8-193ab9816389.gif) |
@@ -36,10 +37,13 @@
 2. 메모의 개수는 바로 반영되서 위에 뜨게 됩니다. 만약 1천개가 넘을 경우 세자리수마다 쉼표가 표시됩니다. 
 3. `leadingSwipeAction`으로 메모를 고정할 수 있습니다.
 4. `trailingSwipeAction`으로 메모를 삭제할 수 있습니다. 
+
+
 <br>
-| 🏞 메모리스트   |  🏞 스와이프액션 - 핀 고정   | 🏞 스와이프액션 - 삭제|
+
+| 🏞 메모리스트  |  🏞 스와이프액션 - 핀 고정   | 🏞 스와이프액션 - 삭제|
 |---|---|---|
-| ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 36 14](https://user-images.githubusercontent.com/51395335/188490251-824f7249-d15d-4706-b99c-6ae236a12365.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 33 40](https://user-images.githubusercontent.com/51395335/188490025-7e67b282-492d-432e-9e54-8e3fb55e7da1.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 34 56](https://user-images.githubusercontent.com/51395335/188490145-2f89af7c-a0c2-4622-9c17-dee04adac403.gif) |
+| ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 36 14](https://user-images.githubusercontent.com/51395335/188490251-824f7249-d15d-4706-b99c-6ae236a12365.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 33 40](https://user-images.githubusercontent.com/51395335/188490025-7e67b282-492d-432e-9e54-8e3fb55e7da1.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 34 56](https://user-images.githubusercontent.com/51395335/188490145-2f89af7c-a0c2-4622-9c17-dee04adac403.gif)|
 
 
 ### 검색
@@ -50,6 +54,7 @@
 | 🏞 검색화면 | 
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 38 52](https://user-images.githubusercontent.com/51395335/188490539-75b44e2b-4b2b-498e-bc8d-7f785e5dd613.gif) |
+
 
 <br><br>
 ---
