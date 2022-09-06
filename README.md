@@ -2,7 +2,7 @@
 
 출시를 위한 다음 프로젝트 과제를 시작하기 전에 좋은 환기와 복습이 되었던 시간이었습니다. 멘토님들께 늘, 항상 감사합니다. 🙇‍♂️
 
-<br><br>
+<br>
 
 ## 📱 화면과 기능, 구현방식
 
@@ -12,7 +12,6 @@
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 01 54 20](https://user-images.githubusercontent.com/51395335/188351455-41f40215-f24a-40d3-bc50-5bbaa48b51d0.gif) |
 
-<br>
 <br>
 
 ### 🖊 메모 작성하기 
@@ -26,13 +25,11 @@
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 21 04](https://user-images.githubusercontent.com/51395335/188488775-0cb51536-fa66-4f39-98bb-7b56aab3851e.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 16 13 27](https://user-images.githubusercontent.com/51395335/188389038-5925d2d5-3b09-4d33-9631-e8d0d94378e1.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 16 13 56](https://user-images.githubusercontent.com/51395335/188389183-a51f0094-e4ee-4b07-bc93-87400655273e.gif) |
 
 <br>
-<br>
 
 ### 📝 메모 수정하기 _(제출 후 수정완료!)_
 1. 리스트에서 셀을 선택하면 수정창으로 넘어가고, 키보드와 바 버튼이 보이지 않습니다. 
 2. 수정창에서 한 번 더 탭하면 키보드와 바 버튼이 보입니다. 
 
-<br>
 <br>
 
 | 🏞 메모 수정 | 
@@ -45,7 +42,6 @@
 3. `leadingSwipeAction`으로 메모를 고정할 수 있습니다.
 4. `trailingSwipeAction`으로 메모를 삭제할 수 있습니다. 
 
-<br>
 <br>
 
 | 🏞 메모리스트  |  🏞 스와이프액션 - 핀 고정   | 🏞 스와이프액션 - 삭제|
@@ -63,7 +59,7 @@
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 38 52](https://user-images.githubusercontent.com/51395335/188490539-75b44e2b-4b2b-498e-bc8d-7f785e5dd613.gif) |
 
 
-<br><br>
+<br>
 
 
 ### 💭 돌아보며
@@ -71,22 +67,23 @@
 미리 요구사항을 이슈로 정리하고 커밋을 잘개 쪼개고, 이슈 템플릿과 PR 템플릿을 만들고 커밋 메시지에도 신경을 쓰고, 폴더링과 주석, 구현하면서도 최대한 배운 개념을 활용해보자고 생각했는데요. 
 소소한 아쉬움은 차치하고서라도 메모 프로젝트 시작 직전에 배운 `Observable` 그리고 적용해보고 싶었던 `DiffableDataSource`와 `Compositional Layout`을 써보지 못해 큰 아쉬움이 남습니다. 
 
-<br><br>
+<br>
 ---
-<br><br>
+<br>
+
 ### 🛠 개선 방향
 0. RX와 MVVM을 이용해 개선하기 
 1. 섹션에 너무 의존하는 부분: 아예 섹션 0을 고정메모 영역으로 잡아두었기 때문에, 고정메모가 없을 경우 위에 빈 공간이 좀 더 생긴다. 섹션을 아예 없애고 고정된 메모와 아닌 메모를 데이터로 따로 관리하는 방향으로 바꿔야 될 것 같다. 
 2. 검색 쿼리와 적용되는 문자열을 레이블에 바로 적용할 수 있도록 `UILabel`에 `extension`으로 해두었는데, 오히려 범용적으로 사용하기 어렵게 되었다. 따로 만들어서 적용할 Attributed String을 받아오는 형태로 개선하고 싶다. 
-3. 
-<br><br>
+
+<br>
 
 ### 💦 실수
 1. `해결함` 프로토콜을 이용하여 값을 역전달 할 때: 자꾸 해당 프로토콜 타입에 VC를 넣을 수 없다는 에러가 떴는데, 알고 보니 var delegate = protocolName? 으로 해둔 것... 🤦 못 찾아서 검색으로 3시간 헤맸다. 
 2. `해결함` 프로토콜 정의할 때 `AnyObject`를 채택했지만, 약한 참조로 선언하지 않은 부분 -> 약한 참조에 대해 약한 이해가 있었다! 수업으로 배워서 바로 적용했다! 
 3. `해결함` 코드로 구현했고 되는 걸 확인했던 것 같은데, 수정 모드에서 바버튼 아이템과 키보드가 제대로 안 없어지는 걸 확인함...🥲 -> 졸려서 코드를 좀 날렸던 것 같다. 제출 후에 수정함 (이슈 #40)
-4. 
-<br><br>
+
+<br>
 
 ### 🤷‍♀️ 좀 더 공부하거나 찾아볼 부분
 1. `Realm Object`를 다른 화면으로 보내서, 그곳에 선언한 `repository`를 이용하면 동일한 write thread가 아니라서 생기는 에러. 쓰레드에 대한 부분이 아직 어렵다.
