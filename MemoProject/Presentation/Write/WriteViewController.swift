@@ -26,10 +26,6 @@ class WriteViewController: BaseViewController {
                 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-        
-    }
     
     override func viewDidDisappear(_ animated: Bool) {
         
@@ -90,13 +86,14 @@ class WriteViewController: BaseViewController {
                 repository.createMemo(item)
             }
         }
-        print("저장완료")
     }
     
     /// 공유버튼 눌렀을 경우
     @objc func shareButtonTapped(_ sender: UIBarButtonItem) {
         if let text = mainView.textView.text, !text.isEmpty {
         showActivityViewController(text: text)
+        } else { // 텍스트가 비었을 경우 얼럿으로 알려줌
+            showAlert(title: "공유할 내용이 없습니다.", okText: "확인", cancelNeeded: false, completionHandler: nil)
         }
     }
     

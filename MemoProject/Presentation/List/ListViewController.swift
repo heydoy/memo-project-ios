@@ -93,16 +93,13 @@ class ListViewController: BaseViewController {
         super.setNavigationBar()
         /// Navigation Item
         /// - Title
-        
         self.navigationItem.backButtonTitle = "메모"
         
         /// -- 타이틀을 크게 설정
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
-
         
         /// - Search Controller
-        
         searchController.searchBar.placeholder = "검색"
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -120,8 +117,6 @@ class ListViewController: BaseViewController {
         makeMemoButton.tintColor = .systemOrange
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         self.toolbarItems = [flexibleSpace, makeMemoButton]
-        
-    
     }
     
     // MARK: - Actions
@@ -136,7 +131,6 @@ class ListViewController: BaseViewController {
         vc.isEditing = true
         vc.editingMode = false // 새 메모라서 편집모드 X
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
 }
@@ -228,7 +222,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    
+    /// - 헤더 폰트 설정
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -240,14 +234,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     /// - 고정하기
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
-            // 핀하기
+            /// 핀 갯수가 최대 개수를 넘어갈 경우
             if self.repository.fetchIsPinned(true).count == MemoPin.MaximumNumber && indexPath.section == 1 {
-                // 얼럿으로 알려주기
+                /// 얼럿으로 알려주기
                 self.showAlert(title: "고정메모는\n최대 \(MemoPin.MaximumNumber)개까지 가능합니다.", okText: "확인", cancelNeeded: false, completionHandler: nil)
                 
                 return
             } else {
-                // 배열이 두개로 관리되므로
+                /// 배열이 두개로 관리되므로
                 let item = indexPath.section == 0 ? self.pinList[indexPath.row] : self.unpinList[indexPath.row]
                 self.repository.updatePin(item)
                 self.list = self.repository.fetch()
@@ -271,9 +265,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.repository.deleteMemo(item)
                 self.fetchRealm()
-                
             }
-            
         }
         delete.image = UIImage(systemName: "trash.fill")
         delete.backgroundColor = .systemRed
