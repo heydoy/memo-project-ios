@@ -8,7 +8,7 @@
 
 ### 🤗 웰컴 스크린 
  `UserDefaults`에서 `Bool`타입 변수를 이용해 앱 첫실행여부를 체크하고 처음일 경우에만 보여줍니다.
-| 🏞 환영 팝업 | 
+| - 환영 팝업 | 
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 01 54 20](https://user-images.githubusercontent.com/51395335/188351455-41f40215-f24a-40d3-bc50-5bbaa48b51d0.gif) |
 
@@ -20,7 +20,7 @@
 2. 내용이 없으면 저장하지 않습니다. 
 3. 공유 버튼을 누르면 작성된 내용이 `Activity View` 를 통해 공유됩니다. (내용이 없을 경우 공유가 되지 않습니다.)
 
-| 🏞 메모 작성하기   |  🏞 내용이 없으면 저장하지 않기    | 🏞 메모 공유하기 |
+| - 메모 작성하기   |  - 내용이 없으면 저장하지 않기    | - 메모 공유하기 |
 |---|---|---|
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 21 04](https://user-images.githubusercontent.com/51395335/188488775-0cb51536-fa66-4f39-98bb-7b56aab3851e.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 16 13 27](https://user-images.githubusercontent.com/51395335/188389038-5925d2d5-3b09-4d33-9631-e8d0d94378e1.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-05 at 16 13 56](https://user-images.githubusercontent.com/51395335/188389183-a51f0094-e4ee-4b07-bc93-87400655273e.gif) |
 
@@ -32,7 +32,7 @@
 
 <br>
 
-| 🏞 메모 수정 | 
+| -  메모 수정 | 
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 26 30](https://user-images.githubusercontent.com/51395335/188489244-5c807f17-1f5c-487e-a4d8-193ab9816389.gif) |
 
@@ -44,7 +44,7 @@
 
 <br>
 
-| 🏞 메모리스트  |  🏞 스와이프액션 - 핀 고정   | 🏞 스와이프액션 - 삭제|
+| - 메모 목록 |  -  스와이프액션 - 핀 고정   | - 스와이프액션 - 삭제|
 |---|---|---|
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 36 14](https://user-images.githubusercontent.com/51395335/188490251-824f7249-d15d-4706-b99c-6ae236a12365.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 33 40](https://user-images.githubusercontent.com/51395335/188490025-7e67b282-492d-432e-9e54-8e3fb55e7da1.gif) | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 34 56](https://user-images.githubusercontent.com/51395335/188490145-2f89af7c-a0c2-4622-9c17-dee04adac403.gif)|
 
@@ -54,7 +54,7 @@
 2. 일치한 문자열은 색깔이 다르게 표시됩니다. 
 3. 검색창에서 검색결과를 클릭해도 메모 수정하기 화면을 볼 수 있습니다.
 
-| 🏞 검색화면 | 
+| - 검색화면 | 
 | --- |
 | ![Simulator Screen Recording - iPhone 11 - 2022-09-06 at 01 38 52](https://user-images.githubusercontent.com/51395335/188490539-75b44e2b-4b2b-498e-bc8d-7f785e5dd613.gif) |
 
