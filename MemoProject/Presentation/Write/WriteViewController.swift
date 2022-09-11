@@ -47,6 +47,7 @@ class WriteViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         /// Navigation Item
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Actions

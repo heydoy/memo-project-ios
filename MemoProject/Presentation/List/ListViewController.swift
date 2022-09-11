@@ -68,6 +68,8 @@ class ListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchRealm()
+        /// 다른 화면에 갔다가 다시 돌아올 경우 네비게이션 타이틀이 줄어드는 부분을 수정
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,6 +80,15 @@ class ListViewController: BaseViewController {
         /// Walkthrough 팝업 띄우기
         showWalkthroughPopup()
            
+    }
+    
+    /// 네비게이션 바의 사이즈가 줄어들지 않는 부분을 수정
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        /// 네비게이션 타이틀이 뷰가 전환될 때 잔상으로 남는 부분을 수정
+        self.navigationItem.title = nil
+        
+        
     }
     
     
