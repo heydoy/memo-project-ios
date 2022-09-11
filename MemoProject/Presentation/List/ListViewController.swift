@@ -86,6 +86,8 @@ class ListViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        /// 네비게이션 타이틀이 뷰가 전환될 때 잔상으로 남는 부분을 수정
+        self.navigationItem.title = nil
     }
     
     
