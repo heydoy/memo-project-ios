@@ -1,0 +1,6 @@
+framework module Pods_MemoProject {
+  umbrella header "Pods-MemoProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
