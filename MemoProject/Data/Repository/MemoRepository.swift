@@ -10,7 +10,7 @@ import RealmSwift
 
 protocol MemoRepositoryType {
     func fetch() -> Results<Memo> //항상 최신순으로 가져오기
-    func fetchIsPinned(_ bool: Bool) -> Results<Memo>
+    func fetchPinnedMemo(_ bool: Bool) -> Results<Memo>
     func fetchFilter(_ query: String) -> Results<Memo>
     func createMemo(_ item: Memo)
     func updateMemo(_ item: Memo)
@@ -26,8 +26,8 @@ class MemoRepository: MemoRepositoryType {
         return localRealm.objects(Memo.self).sorted(byKeyPath: "dateCreated", ascending: false) // 항상 최신순으로 가져온다
     }
     
-    func fetchIsPinned(_ bool: Bool) -> Results<Memo> {
-        return localRealm.objects(Memo.self).filter("isPinned == \(bool)").sorted(byKeyPath: "dateCreated", ascending: false)
+    func fetchPinnedMemo(_ bool: Bool) -> Results<Memo> {
+        return localRealm.objects(Memo.self).filter("pinnedMemo == \(bool)").sorted(byKeyPath: "dateCreated", ascending: false)
     }
     
     func fetchFilter(_ query: String) -> Results<Memo> {
@@ -89,7 +89,7 @@ class MemoRepository: MemoRepositoryType {
     func updatePin(_ item: Memo) {
         do {
             try self.localRealm.write {
-                item.isPinned.toggle()
+                item.pinnedMemo.toggle()
             }
             
         } catch let error {
