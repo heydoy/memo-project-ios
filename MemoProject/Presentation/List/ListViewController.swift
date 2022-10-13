@@ -133,8 +133,8 @@ class ListViewController: BaseViewController {
     // MARK: - Actions
     func fetchRealm() {
         list = repository.fetch() // 저장시점이랑 viewWillAppear 시점이 다르다.
-        pinList = repository.fetchIsPinned(true)
-        unpinList = repository.fetchIsPinned(false)
+        pinList = repository.fetchPinnedMemo(true)
+        unpinList = repository.fetchPinnedMemo(false)
     }
     
     @objc func makeMemoButtonTapped(_ sender: UIBarButtonItem) {
@@ -246,7 +246,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
             /// 핀 갯수가 최대 개수를 넘어갈 경우
-            if self.repository.fetchIsPinned(true).count == MemoPin.MaximumNumber && indexPath.section == 1 {
+            if self.repository.fetchPinnedMemo(true).count == MemoPin.MaximumNumber && indexPath.section == 1 {
                 /// 얼럿으로 알려주기
                 self.showAlert(title: "고정메모는\n최대 \(MemoPin.MaximumNumber)개까지 가능합니다.", okText: "확인", cancelNeeded: false, completionHandler: nil)
                 
@@ -261,7 +261,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
         let item = indexPath.section == 0 ? self.pinList[indexPath.row] : self.unpinList[indexPath.row]
-        let pinImage = item.isPinned ? "pin.slash.fill" : "pin.fill"
+        let pinImage = item.pinnedMemo ? "pin.slash.fill" : "pin.fill"
         pin.image = UIImage(systemName: pinImage)
         pin.backgroundColor = .systemOrange
         

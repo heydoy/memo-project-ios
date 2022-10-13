@@ -13,7 +13,7 @@ class Memo: Object {
     @Persisted(indexed: true) var title: String
     @Persisted var content: String? // 내용이 없을 수도 있음
     @Persisted var dateCreated = Date() // 작성시각
-    @Persisted var isPinned: Bool // 고정메모 여부
+    @Persisted var pinnedMemo: Bool // 고정메모 여부
     
     convenience init(title: String, content: String?, dateCreated: Date ) {
         self.init()
@@ -21,7 +21,7 @@ class Memo: Object {
         self.title = title
         self.content = content
         self.dateCreated = dateCreated
-        self.isPinned = false
+        self.pinnedMemo = false
     }
 }
 
