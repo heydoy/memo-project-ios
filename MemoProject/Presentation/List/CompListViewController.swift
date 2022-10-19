@@ -10,6 +10,12 @@ import SnapKit
 import Then
 import RealmSwift
 
+enum Section {
+    case pinned
+    case unpinned
+    case search
+}
+
 class CompListViewController: BaseViewController {
     // MARK: - Properties
     let mainView = CompListView()
@@ -37,7 +43,7 @@ class CompListViewController: BaseViewController {
     var pinList: Results<Memo>!
     var unpinList: Results<Memo>!
     
-    private var dataSource: UICollectionViewDiffableDataSource<Int, Memo>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Memo>!
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -179,8 +185,8 @@ extension CompListViewController {
         
         // 스냅샷, 모델을 Initialise 해줄 것
         // 스냅샷 타입은 위에 dataSource형태와 맞추기 (섹션Int, 모델타입)
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Memo>()
-        snapshot.appendSections([0])
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Memo>()
+        snapshot.appendSections([.unpinned])
         guard let list = list else { return }
         
         snapshot.appendItems(list.toArray())
