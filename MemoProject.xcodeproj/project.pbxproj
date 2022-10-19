@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58B9377D586E9F84E0501283 /* Pods_MemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02856E0A185570F61349B69B /* Pods_MemoProject.framework */; };
+		A2B2F33A2900A266001112CF /* CompListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2F3392900A266001112CF /* CompListViewController.swift */; };
 		A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018828C0594700D020B2 /* AppDelegate.swift */; };
 		A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018A28C0594700D020B2 /* SceneDelegate.swift */; };
 		A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018C28C0594700D020B2 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		02856E0A185570F61349B69B /* Pods_MemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930A9A460249834034C5BE19 /* Pods-MemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoProject.debug.xcconfig"; path = "Target Support Files/Pods-MemoProject/Pods-MemoProject.debug.xcconfig"; sourceTree = "<group>"; };
+		A2B2F3392900A266001112CF /* CompListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompListViewController.swift; sourceTree = "<group>"; };
 		A2B3018528C0594700D020B2 /* MemoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B3018828C0594700D020B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B3018A28C0594700D020B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				A2B301C828C212F900D020B2 /* ListViewController.swift */,
 				A2B301CE28C31F1400D020B2 /* ListView.swift */,
+				A2B2F3392900A266001112CF /* CompListViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -290,7 +293,6 @@
 				930A9A460249834034C5BE19 /* Pods-MemoProject.debug.xcconfig */,
 				FCA89A43FDA1AEE70265714F /* Pods-MemoProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -349,7 +351,7 @@
 			packageReferences = (
 				A2B301A428C0F67C00D020B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A2B301A728C0F68E00D020B2 /* XCRemoteSwiftPackageReference "Then" */,
-				A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = A2B3018628C0594700D020B2 /* Products */;
 			projectDirPath = "";
@@ -429,6 +431,7 @@
 				A2B301CF28C31F1400D020B2 /* ListView.swift in Sources */,
 				A2F1D9C828C3748C00C3B010 /* WriteView.swift in Sources */,
 				A2F1D9D528C4DA1000C3B010 /* LandscapeManager.swift in Sources */,
+				A2B2F33A2900A266001112CF /* CompListViewController.swift in Sources */,
 				A2F1D9CA28C3749E00C3B010 /* WriteViewController.swift in Sources */,
 				A2B301C928C212F900D020B2 /* ListViewController.swift in Sources */,
 				A2F1D9D228C4CD7900C3B010 /* WalkthroughViewController.swift in Sources */,
@@ -594,7 +597,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +629,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,7 +683,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -703,12 +706,12 @@
 		};
 		A2B301AB28C0F71500D020B2 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		A2B301AD28C0F71500D020B2 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = A2B301AA28C0F71500D020B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
