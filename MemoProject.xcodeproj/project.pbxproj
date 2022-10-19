@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58B9377D586E9F84E0501283 /* Pods_MemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02856E0A185570F61349B69B /* Pods_MemoProject.framework */; };
 		A2B2F33A2900A266001112CF /* CompListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2F3392900A266001112CF /* CompListViewController.swift */; };
+		A2B2F33C2900A446001112CF /* CompListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2F33B2900A446001112CF /* CompListView.swift */; };
 		A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018828C0594700D020B2 /* AppDelegate.swift */; };
 		A2B3018B28C0594700D020B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018A28C0594700D020B2 /* SceneDelegate.swift */; };
 		A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3018C28C0594700D020B2 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		02856E0A185570F61349B69B /* Pods_MemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930A9A460249834034C5BE19 /* Pods-MemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoProject.debug.xcconfig"; path = "Target Support Files/Pods-MemoProject/Pods-MemoProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A2B2F3392900A266001112CF /* CompListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompListViewController.swift; sourceTree = "<group>"; };
+		A2B2F33B2900A446001112CF /* CompListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompListView.swift; sourceTree = "<group>"; };
 		A2B3018528C0594700D020B2 /* MemoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B3018828C0594700D020B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B3018A28C0594700D020B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				A2B301C828C212F900D020B2 /* ListViewController.swift */,
 				A2B301CE28C31F1400D020B2 /* ListView.swift */,
 				A2B2F3392900A266001112CF /* CompListViewController.swift */,
+				A2B2F33B2900A446001112CF /* CompListView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				A2B301C228C2095700D020B2 /* UIViewController+Extension.swift in Sources */,
 				A2F1D9CC28C4083A00C3B010 /* Date+Extension.swift in Sources */,
 				A2B3018D28C0594700D020B2 /* ViewController.swift in Sources */,
+				A2B2F33C2900A446001112CF /* CompListView.swift in Sources */,
 				A2B3018928C0594700D020B2 /* AppDelegate.swift in Sources */,
 				A2F1D9C028C36BCA00C3B010 /* MemoRepository.swift in Sources */,
 				A2B301CF28C31F1400D020B2 /* ListView.swift in Sources */,
