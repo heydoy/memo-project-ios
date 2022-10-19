@@ -16,6 +16,8 @@ enum Section {
     case search
 }
 
+typealias Item = Memo
+
 class CompListViewController: BaseViewController {
     // MARK: - Properties
     let mainView = CompListView()
@@ -43,7 +45,7 @@ class CompListViewController: BaseViewController {
     var pinList: Results<Memo>!
     var unpinList: Results<Memo>!
     
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Memo>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -185,7 +187,7 @@ extension CompListViewController {
         
         // 스냅샷, 모델을 Initialise 해줄 것
         // 스냅샷 타입은 위에 dataSource형태와 맞추기 (섹션Int, 모델타입)
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Memo>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.unpinned])
         guard let list = list else { return }
         
