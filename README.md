@@ -4,6 +4,12 @@
 
 <br>
 
+## 🍎 개선내용
+
+2022.10.24 > 기존 테이블 뷰를 Compositional Layout + Diffable Datasource로 변경
+
+<br>
+
 ## 📱 화면과 기능, 구현방식
 
 ### 🤗 웰컴 스크린 
@@ -72,6 +78,7 @@
 ---
 
 <br>
+
 
 ### 🛠 개선 방향
 0. RX와 MVVM을 이용해 개선하기 
