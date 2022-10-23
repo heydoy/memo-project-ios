@@ -203,15 +203,10 @@ extension CompListViewController: UICollectionViewDelegate {
         vc.delegate = self
         vc.isEditing = false
         vc.editingMode = true // 기존메모 수정이므로 editingMode는 참
-        if isSearching {
-            let memo = filterResult[indexPath.row]
-            vc.updateTextview(memo: memo)
-            vc.editingMemo = memo
-        } else {
-            let memo = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
-            vc.updateTextview(memo: memo)
-            vc.editingMemo = memo
-        }
+
+        guard let memo = dataSource.itemIdentifier(for: indexPath) else { return }
+        vc.updateTextview(memo: memo)
+        vc.editingMemo = memo
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
