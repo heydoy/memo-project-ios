@@ -137,7 +137,48 @@ class CompListViewController: BaseViewController {
 extension CompListViewController {
     private func createLayout() -> UICollectionViewLayout {
         
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.leadingSwipeActionsConfigurationProvider = { [unowned self] indexPath in
+            let pin = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
+                /// 핀 갯수가 최대 개수를 넘어갈 경우
+                if self.repository.fetchPinnedMemo(true).count == MemoPin.MaximumNumber && indexPath.section == 1 {
+                    /// 얼럿으로 알려주기
+                    self.showAlert(title: "고정메모는\n최대 \(MemoPin.MaximumNumber)개까지 가능합니다.", okText: "확인", cancelNeeded: false, completionHandler: nil)
+                    
+                    return
+                } else {
+                    let item = self.dataSource.itemIdentifier(for: indexPath)!
+                    self.repository.updatePin(item)
+                    self.list = self.repository.fetch()
+                    self.fetchRealm()
+                }
+                
+            }
+            let item = self.dataSource.itemIdentifier(for: indexPath)!
+            let pinImage = item.pinnedMemo ? "pin.slash.fill" : "pin.fill"
+            pin.image = UIImage(systemName: pinImage)
+            pin.backgroundColor = .systemOrange
+            
+            return UISwipeActionsConfiguration(actions: [ pin ])
+            
+            
+        }
+        config.trailingSwipeActionsConfigurationProvider = { [unowned self] indexPath in
+            let delete = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
+                // 삭제하기
+                self.showAlert(title: "삭제하시겠습니까?", okText: "네, 삭제합니다.", cancelNeeded: true) { action in
+                    let item = self.dataSource.itemIdentifier(for: indexPath)!
+                    
+                    self.repository.deleteMemo(item)
+                    self.fetchRealm()
+                }
+            }
+            delete.image = UIImage(systemName: "trash.fill")
+            delete.backgroundColor = .systemRed
+            return UISwipeActionsConfiguration(actions: [delete])
+        
+        }
+        
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         
         return layout
@@ -162,7 +203,7 @@ extension CompListViewController {
             if let content = itemIdentifier.content {
                 contentString = content.replacingOccurrences(of: "\n", with: "")
             }
-                        
+            
             content.prefersSideBySideTextAndSecondaryText = false
             content.secondaryText = "\(dateString)  \(contentString)"
             
@@ -189,11 +230,11 @@ extension CompListViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         
         guard let unpinList = unpinList, let pinList = pinList else { return }
-        snapshot.appendSections([.unpinned])
-        snapshot.appendItems(unpinList.toArray(), toSection: .unpinned)
         snapshot.appendSections([.pinned])
         snapshot.appendItems(pinList.toArray(), toSection: .pinned)
-        dataSource.apply(snapshot)
+        snapshot.appendSections([.unpinned])
+        snapshot.appendItems(unpinList.toArray(), toSection: .unpinned)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 // MARK: - Collection View Delegate
@@ -203,7 +244,7 @@ extension CompListViewController: UICollectionViewDelegate {
         vc.delegate = self
         vc.isEditing = false
         vc.editingMode = true // 기존메모 수정이므로 editingMode는 참
-
+        
         guard let memo = dataSource.itemIdentifier(for: indexPath) else { return }
         vc.updateTextview(memo: memo)
         vc.editingMemo = memo
@@ -221,7 +262,7 @@ extension CompListViewController: UISearchResultsUpdating {
         
         guard let filterResult = filterResult else { return }
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-
+        
         snapshot.appendSections([.search])
         snapshot.appendItems(filterResult.toArray(), toSection: .search)
         dataSource.apply(snapshot)
