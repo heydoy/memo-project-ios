@@ -30,7 +30,9 @@ class CompListViewController: BaseViewController {
     
     var isSearching: Bool {
         get {
-            return searchController.isActive
+            let searchable = searchController.isActive
+            navigationItem.backButtonTitle = searchable ? "검색" : "메모"
+            return searchable
         }
     }
     
@@ -81,7 +83,7 @@ class CompListViewController: BaseViewController {
     }
     
     override func configure() {
-        //mainView.collectionView.delegate = self
+        mainView.collectionView.delegate = self
         mainView.collectionView.collectionViewLayout = createLayout()
         configureDataSource()
     }
@@ -194,6 +196,26 @@ extension CompListViewController {
         dataSource.apply(snapshot)
     }
 }
+// MARK: - Collection View Delegate
+extension CompListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = WriteViewController()
+        vc.delegate = self
+        vc.isEditing = false
+        vc.editingMode = true // 기존메모 수정이므로 editingMode는 참
+        if isSearching {
+            let memo = filterResult[indexPath.row]
+            vc.updateTextview(memo: memo)
+            vc.editingMemo = memo
+        } else {
+            let memo = indexPath.section == 0 ? pinList[indexPath.row] : unpinList[indexPath.row]
+            vc.updateTextview(memo: memo)
+            vc.editingMemo = memo
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 // MARK: - Search Bar Result Update
 extension CompListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
