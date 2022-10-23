@@ -54,7 +54,6 @@ class CompListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,11 +78,9 @@ class CompListViewController: BaseViewController {
         super.viewWillDisappear(animated)
         /// 네비게이션 타이틀이 뷰가 전환될 때 잔상으로 남는 부분을 수정
         self.navigationItem.title = nil
-        
-        
     }
+    
     override func configure() {
-        
         //mainView.collectionView.delegate = self
         mainView.collectionView.collectionViewLayout = createLayout()
         configureDataSource()
@@ -188,25 +185,29 @@ extension CompListViewController {
         // 스냅샷, 모델을 Initialise 해줄 것
         // 스냅샷 타입은 위에 dataSource형태와 맞추기 (섹션Int, 모델타입)
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        
+        guard let unpinList = unpinList, let pinList = pinList else { return }
         snapshot.appendSections([.unpinned])
-        guard let list = list else { return }
-        
-        snapshot.appendItems(list.toArray())
+        snapshot.appendItems(unpinList.toArray(), toSection: .unpinned)
+        snapshot.appendSections([.pinned])
+        snapshot.appendItems(pinList.toArray(), toSection: .pinned)
         dataSource.apply(snapshot)
-        
     }
-    
-    
 }
-
-
 // MARK: - Search Bar Result Update
 extension CompListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let query = searchController.searchBar.text ?? ""
         
         self.query = query
-        self.filterResult = repository.fetchFilter(query)
+        filterResult = repository.fetchFilter(query)
+        
+        guard let filterResult = filterResult else { return }
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+
+        snapshot.appendSections([.search])
+        snapshot.appendItems(filterResult.toArray(), toSection: .search)
+        dataSource.apply(snapshot)
     }
 }
 
